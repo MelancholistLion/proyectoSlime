@@ -1,33 +1,22 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class Frog here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class Frog extends Actor
 {
-    private GifImage myImage = new GifImage("Cold_Frog_JE1_BE1.gif");
+    private GreenfootImage myImage = new GreenfootImage("frog.png");
+    
     public Frog() {
-        int newHeight = (int)myImage.getHeight;
-        int newWidth = (int)myImage.getWidth()/8;
-        myImage.scale(newWidth, newHeight);
     }
     public void act()
     {
-        setImage(myImage.getCurrentImage());
-        /*if(Greenfoot.isKeyDown("A")) {
-            move(-3);
+        if(Greenfoot.mouseClicked(this)) {
+            DialogueFrame ff = new DialogueFrame();
+            FrogDialogue fd = new FrogDialogue();
+            
+            getWorld().addObject(ff, 320, 320);
+            getWorld().addObject(fd, 325, 325);
+            
+            int frame = 0;
+            ff.setLimit(6);
         }
-        if(Greenfoot.isKeyDown("D")) {
-            move(3);
-        }
-        if(Greenfoot.isKeyDown("S")) {
-            setLocation(getX(), getY()+3);
-        }
-        if(Greenfoot.isKeyDown("W")) {
-            setLocation(getX(), getY()-3);
-        }*/
     }
 }
