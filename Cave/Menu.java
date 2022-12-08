@@ -10,6 +10,8 @@ public class Menu extends World
 {
     private int opcion = 1;
     private Arrow arrow = new Arrow();
+    private Continue cont = new Continue();
+    private Back back = new Back();
     public Menu() {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(700, 394, 1);
@@ -17,8 +19,8 @@ public class Menu extends World
     }
     
     private void prepararMundo() {
-        addObject(new Continue(), 500, 150); // X Y
-        addObject(new Back(), 500, 250);
+        addObject(cont, 500, 150);
+        addObject(back, 500, 250);
         addObject(arrow, 375, 150);
     }
     
@@ -31,6 +33,8 @@ public class Menu extends World
         if(Greenfoot.isKeyDown("SPACE") || Greenfoot.isKeyDown("ENTER")) {
             switch(opcion) {
                 case 0:
+                    setBackground(new GreenfootImage("Pantalla_Carga/Carga.png"));
+                    Greenfoot.delay(10);
                     Greenfoot.setWorld(new MyWorld());
                     break;
                 case 1:

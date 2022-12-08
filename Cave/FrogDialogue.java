@@ -15,16 +15,18 @@ public class FrogDialogue extends Actor
     private Color trans = new Color(0, 0, 0, 0);
     public FrogDialogue() {
         //getWorld().addObject(df, 350, 350);
-        setImage(new GreenfootImage(Dialogue[frame], 20, Color.WHITE, trans));
+        setImage(new GreenfootImage(Dialogue[frame], 23, Color.WHITE, trans));
     }
     public void act()
     {
-        if(Greenfoot.isKeyDown("ENTER") && frame < 6) {
-            setImage(new GreenfootImage(Dialogue[frame], 20, Color.WHITE, trans));
+        if(frame < 6) {
+            setImage(new GreenfootImage(Dialogue[frame], 23, Color.WHITE, trans));
             frame++;
-            Greenfoot.delay(5);
+            Greenfoot.delay(10);
         } else if(frame > 5) { 
+            Greenfoot.delay(10);
             getWorld().removeObject(this);
+            Greenfoot.setSpeed(50);
         }
     }
     public void setFrame(int frame) {

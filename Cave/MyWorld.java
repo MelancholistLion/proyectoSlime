@@ -12,15 +12,17 @@ public class MyWorld extends World
     {    
         super(700, 394, 1); 
         prepararMundo();
-        
+
     }
     private void prepararMundo() {
         addObject(leo, 191, 289);
         addObject(rimuru, 350, 250);
+        Greenfoot.setSpeed(50);
     }
     
     public void act() {
         openedCave();
+        enterLevel();
     }
     
     public void openedCave() {
@@ -30,6 +32,13 @@ public class MyWorld extends World
                 Greenfoot.delay(2);
             }
             doorsClosed = false;
+        }
+    }
+    public void enterLevel() {
+        if(!doorsClosed) {
+            if(rimuru.getX() > 297 && rimuru.getX() < 400 && rimuru.getY() < 122) {
+                Greenfoot.setWorld(new Level1(rimuru));
+            }
         }
     }
 }
